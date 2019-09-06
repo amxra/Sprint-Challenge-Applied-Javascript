@@ -23,6 +23,8 @@
 
 
 function newArticle (data){
+
+    //Created the new elements 
     const newCardDiv = document.createElement('div');
     const newHeadlineDiv = document.createElement('div');
     const newAuthorDiv = document.createElement('div');
