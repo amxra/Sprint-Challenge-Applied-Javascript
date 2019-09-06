@@ -41,7 +41,5 @@ function Header(data) {
 
 }
 
-const headerContainer = document.querySelector('.headerContainer');
-
-headerContainer.appendChild(Header());
+ document.querySelector('.header-container').appendChild(Header())
 
