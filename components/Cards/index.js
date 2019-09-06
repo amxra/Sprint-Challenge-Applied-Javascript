@@ -41,7 +41,7 @@ function newArticle (data){
 
     //Add content
     newHeadlineDiv.textContent = data.headline;
-    newImageDiv.setAttribute('src', data.authorPhoto);
+    newImage.src = data.authorPhoto;
     newSpan.textContent = `By ${data.authorName}`;
 
     newCardDiv.appendChild(newHeadlineDiv);
@@ -72,5 +72,5 @@ function newCard (){
     })
 }
 
-newCard()
+newCard();
 
