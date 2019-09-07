@@ -18,7 +18,6 @@
   </div>
 */
 
-let slideNumber = 1;
 
 function Carousel() {
 
@@ -35,19 +34,19 @@ function Carousel() {
   leftButtonDiv.classList.add('left-button');
   rightbuttonDiv.classList.add('right-button');
 
-  firstImage.src = '../../assets/carousel/mountains.jpeg';
-  secondImage.src = '../../assets/carousel/computer.jpeg';
-  thirdImage.src = '../../assets/carousel/trees.jpeg';
-  fourthImage.src = '../../assets/carousel/turntable.jpeg';
+  firstImage.setAttribute = ('src','../../assets/carousel/mountains.jpeg');
+  secondImage.setAttribute = ('src','../../assets/carousel/computer.jpeg');
+  thirdImage.setAttribute = ('src' , '../../assets/carousel/trees.jpeg');
+  fourthImage.setAttribute = ('src' , '../../assets/carousel/turntable.jpeg');
 
   
 
-    carouselDiv.appendChild(leftButtonDiv);
-    carouselDiv.appendChild(rightButtonDiv);
-    carouselDiv.appendChild(firstImage);
-    carouselDiv.appendChild(secondImage);
-    carouselDiv.appendChild(thirdImage);
-    carouselDiv.appendChild(fourthImage);
+  carouselDiv.appendChild(leftButtonDiv);
+  carouselDiv.appendChild(rightButtonDiv);
+  carouselDiv.appendChild(firstImage);
+  carouselDiv.appendChild(secondImage);
+  carouselDiv.appendChild(thirdImage);
+  carouselDiv.appendChild(fourthImage);
 
 
   console.log(carouselDiv)
