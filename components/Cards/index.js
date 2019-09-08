@@ -17,3 +17,62 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+
+
+
+
+function newArticle (data){
+
+    //Created the new elements 
+    const newCardDiv = document.createElement('div');
+    const newHeadlineDiv = document.createElement('div');
+    const newAuthorDiv = document.createElement('div');
+    const newImageDiv = document.createElement('div');
+    const newImage = document.createElement('img');
+    const newSpan = document.createElement('span');
+
+    //Add Classes
+
+    newCardDiv.classList.add('card');
+    newHeadlineDiv.classList.add('headline');
+    newAuthorDiv.classList.add('author');
+    newImageDiv.classList.add('img-container');
+    
+
+
+    //Add content
+    newHeadlineDiv.textContent = data.headline;
+    newImage.src = data.authorPhoto;
+    newSpan.textContent = `By ${data.authorName}`;
+
+    newCardDiv.appendChild(newHeadlineDiv);
+    newCardDiv.appendChild(newAuthorDiv);
+    newAuthorDiv.appendChild(newImageDiv);
+    newAuthorDiv.appendChild(newSpan);
+    newImageDiv.appendChild(newImage);
+
+
+    return newCardDiv;
+
+}
+
+function newCard (){
+    const cardContainer = document.querySelector('.cards-container');
+    
+    axios.get('https://lambda-times-backend.herokuapp.com/articles')
+    .then(response => {
+        let data = response.data.articles;
+        for (let key in data){
+            data[key].map(element => {
+                cardContainer.appendChild(newArticle(element));
+            })
+        }
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+newCard();
+

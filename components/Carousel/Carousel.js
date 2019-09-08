@@ -17,3 +17,79 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+
+function Carousel() {
+
+  const carouselDiv = document.createElement('div');
+  const leftButtonDiv = document.createElement('div');
+  const rightbuttonDiv = document.createElement('div');
+  const firstImage = document.createElement('img');
+  const secondImage = document.createElement('img');
+  const thirdImage =  document.createElement('img');
+  const fourthImage = document.createElement('img');
+
+
+  carouselDiv.classList.add('carousel');
+  leftButtonDiv.classList.add('left-button');
+  rightbuttonDiv.classList.add('right-button');
+
+  firstImage.setAttribute = ('src','../../assets/carousel/mountains.jpeg');
+  secondImage.setAttribute = ('src','../../assets/carousel/computer.jpeg');
+  thirdImage.setAttribute = ('src' , '../../assets/carousel/trees.jpeg');
+  fourthImage.setAttribute = ('src' , '../../assets/carousel/turntable.jpeg');
+
+  
+
+  carouselDiv.appendChild(leftButtonDiv);
+  carouselDiv.appendChild(rightButtonDiv);
+  carouselDiv.appendChild(firstImage);
+  carouselDiv.appendChild(secondImage);
+  carouselDiv.appendChild(thirdImage);
+  carouselDiv.appendChild(fourthImage);
+
+
+  console.log(carouselDiv)
+
+  return carouselDiv;
+}
+
+// Add carousel to html
+const newCarousel = document.querySelector('.carousel-container');
+newlCarousel.appendChild(Carousel());
+
+//Event listener for right button
+const rightbuttonDiv = document.querySelector('.right-button');
+
+rightbuttonDiv.addEventListener('click', () => {
+  showSlides(slideNumber += 1);
+})
+
+//Event listener for Left button
+const leftButtonDiv = document.querySelector('.left-button');
+
+leftButtonDiv.addEventListener('click', () => {
+  showSlides(slideNumber -= 1);
+})
+
+//Animation function
+function showSlides(n) {
+  debugger
+
+  let slides = document.querySelectorAll(".carousel img")
+
+  if (n > slides.length) {
+    slideNumber = 1
+  }
+  if (n < 1) {
+    slideNumber = slides.length
+  }
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideNumber - 1].style.display = "block";
+}
+
+showSlides(slideNumber);
+
